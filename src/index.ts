@@ -1,6 +1,6 @@
-import path from 'node:path';
 import express from 'express';
 import mongoose from 'mongoose';
+import path from 'node:path';
 import { router } from './router';
 
 mongoose

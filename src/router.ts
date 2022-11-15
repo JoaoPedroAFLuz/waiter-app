@@ -1,14 +1,18 @@
-import path from 'node:path';
 import { Router } from 'express';
 import multer, { diskStorage } from 'multer';
+import path from 'node:path';
 
 import { createCategory } from './app/useCases/categories/createCategory';
 import { listCategories } from './app/useCases/categories/listCategories';
-import { createProduct } from './app/useCases/products/createProducts';
-import { listProducts } from './app/useCases/products/listProducts';
 import { listProductsByCategory } from './app/useCases/categories/listProductsByCategory';
-
+import { cancelOrder } from './app/useCases/orders/cancelOrder';
+import { changeOrderStatus } from './app/useCases/orders/changeOrderStatus';
+import { createOrder } from './app/useCases/orders/createOrder';
+import { listOrders } from './app/useCases/orders/listOrders';
+import { createProduct } from './app/useCases/products/createProduct';
 import { getProductById } from './app/useCases/products/getProductById';
+import { listProducts } from './app/useCases/products/listProducts';
+
 export const router = Router();
 
 const upload = multer({
@@ -34,10 +38,10 @@ router.get('/categories/:categoryId/products', listProductsByCategory);
 
 router.post('/categories', createCategory);
 
-router.get('/orders');
+router.get('/orders', listOrders);
 
-router.post('/orders');
+router.post('/orders', createOrder);
 
-router.patch('/oders/:id');
+router.patch('/orders/:orderId', changeOrderStatus);
 
-router.delete('/oders/:id');
+router.delete('/orders/:orderId', cancelOrder);
