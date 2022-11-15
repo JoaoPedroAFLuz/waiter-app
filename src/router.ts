@@ -8,6 +8,7 @@ import { createProduct } from './app/useCases/products/createProducts';
 import { listProducts } from './app/useCases/products/listProducts';
 import { listProductsByCategory } from './app/useCases/categories/listProductsByCategory';
 
+import { getProductById } from './app/useCases/products/getProductById';
 export const router = Router();
 
 const upload = multer({
@@ -23,7 +24,7 @@ const upload = multer({
 
 router.get('/products', listProducts);
 
-router.get('/products/:productId');
+router.get('/products/:productId', getProductById);
 
 router.post('/products', upload.single('image'), createProduct);
 
