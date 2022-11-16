@@ -1,11 +1,24 @@
 import { Header } from '../components/Hearder';
-import { Container } from './styles';
+import {
+  Container,
+  CategoriesContainer,
+  MenuContainer,
+  Footer,
+  FooterContainer,
+} from './styles';
 
 export function Main() {
   return (
     <>
-      <Container />
-      <Header />
+      <Container>
+        <Header />
+        <CategoriesContainer></CategoriesContainer>
+        <MenuContainer></MenuContainer>
+      </Container>
+
+      <Footer>
+        <FooterContainer></FooterContainer>
+      </Footer>
     </>
   );
 }
