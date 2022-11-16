@@ -14,6 +14,7 @@ export const Content = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin: 0 8px;
 
   .page-details {
     h1 {

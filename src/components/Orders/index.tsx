@@ -33,9 +33,9 @@ const order: Order[] = [
 export function Orders() {
   return (
     <Container>
-      <OrdersBoard icon="⌚" title="Fila de espera." orders={order} />
-      <OrdersBoard icon="👨🏽‍🍳" title="Em preparação." orders={[]} />
-      <OrdersBoard icon="✅" title="Pronto!" orders={[]} />
+      <OrdersBoard icon="🕒" title="Fila de espera" orders={order} />
+      <OrdersBoard icon="👩🏽‍🍳" title="Em preparação" orders={[]} />
+      <OrdersBoard icon="✅" title="Finalizado!" orders={[]} />
     </Container>
   );
 }
