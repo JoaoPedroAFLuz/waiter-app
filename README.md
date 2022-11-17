@@ -1,6 +1,6 @@
 # 👩🏽‍🍳 Waiter API
 
-## 📱 Waiter APP:
+## 📱 Waiter App:
 
 Mobile app that allows the waiter to take the customers orders and send directly to the cooks. <br />
 The app make it possible to the waiter see the entire restaurant's menu and select the custumers order. <br />
@@ -8,18 +8,18 @@ The cooks receive the orders and can change their status.
 
 ## 🖥 Waiter API:
 
-The API allows the mobile app to:
+The API allows the mobile app and the web site to:
 
 - [x] List products, categories and orders.
 - [x] Create products, categories and orders.
-- [x] Get product by id.
-- [x] Get product image.
+- [x] Get products by id.
+- [x] Get products image.
 - [x] List products by category.
-- [x] Update order status.
-- [x] Cancel order.
-- [ ] Find category and order by id.
-- [ ] Update product and category.
-- [ ] Delete product and category.
+- [x] Update orders status.
+- [x] Cancel orders.
+- [ ] Find categories and orders by id.
+- [ ] Update products and categories.
+- [ ] Delete products and categories.
 
 ## 🛠 How to install:
 
