@@ -1,16 +1,16 @@
-# 👩🏽‍🍳 Waiter Web App
+# 👩🏽‍🍳 Waiter Web Site
 
 - [Access site](https://waiter-web.netlify.app/)
 
-## 📱 Waiter APP:
+## 📱 Waiter App:
 
 Mobile app that allows the waiter to take the customers orders and send directly to the cooks. <br />
 The app make it possible to the waiter see the entire restaurant's menu and select the custumers order. <br />
 The cooks receive the orders and can change their status.
 
-## 🖥 Waiter Web App:
+## 🖥 Waiter Web Site:
 
-The Web App allows the cooks to:
+The web site allows the cooks to:
 
 - [x] Get all orders;
 - [x] Get order details;
