@@ -12,7 +12,6 @@ import {
   CategoriesContainer,
   Container,
   Footer,
-  FooterContainer,
   MenuContainer,
 } from './styles';
 
@@ -25,8 +24,9 @@ export function Main() {
     setSelectedTable(table);
   }
 
-  function handleCancelOrder() {
+  function handleResetOrder() {
     setSelectedTable('');
+    setCartItems([]);
   }
 
   function handleAddToCart(product: Product) {
@@ -84,7 +84,7 @@ export function Main() {
       <Container>
         <Header
           selectedTable={selectedTable}
-          onCancelOrder={handleCancelOrder}
+          onCancelOrder={handleResetOrder}
         />
         <CategoriesContainer>
           <Categories></Categories>
@@ -107,6 +107,7 @@ export function Main() {
             cartItems={cartItems}
             onAdd={handleAddToCart}
             onDecrement={handleDecrementCartItem}
+            onConfirmOrder={handleResetOrder}
           />
         )}
         {/* </FooterContainer> */}

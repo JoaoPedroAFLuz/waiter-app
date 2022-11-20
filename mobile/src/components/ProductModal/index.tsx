@@ -1,3 +1,4 @@
+import { StatusBar } from 'expo-status-bar';
 import { FlatList, Modal } from 'react-native';
 import { Product } from '../../types/Product';
 import { formatCurrency } from '../../Utils/formatCurrency';
@@ -5,7 +6,6 @@ import { Button } from '../Button';
 import { Close } from '../Icons/Close';
 import { Text } from '../Text';
 import {
-  ModalBody,
   CloseButton,
   Footer,
   FooterContainer,
@@ -13,6 +13,7 @@ import {
   Image,
   Ingredient,
   IngredientsContainer,
+  ModalBody,
   PriceContainer,
 } from './styles';
 
@@ -45,6 +46,7 @@ export function ProductModal({
       presentationStyle="pageSheet"
       onRequestClose={onClose}
     >
+      <StatusBar style="light" backgroundColor="#fafafa" />
       <Image
         source={{
           uri: `http://192.168.15.55:3001/uploads/${product?.imagePath}`,
