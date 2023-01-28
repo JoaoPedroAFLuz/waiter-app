@@ -41,7 +41,7 @@ export const OrdersContainer = styled.div`
 
     span {
       font-size: 14px;
-      color: #666666
+      color: #666666;
     }
 
     & + button {

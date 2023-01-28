@@ -2,7 +2,7 @@ import { Actions, ModalBody, OrderDetails, Overlay } from './styles';
 
 import closeIcon from '../../assets/images/close-icon.svg';
 import { Order } from '../../types/Order';
-import { formatCurrency } from '../../Utils/formatCurrency';
+import { formatCurrency } from '../../utils/formatCurrency';
 import { useEffect } from 'react';
 
 interface OrderModalProps {
