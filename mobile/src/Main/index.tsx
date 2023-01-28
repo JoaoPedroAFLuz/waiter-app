@@ -1,17 +1,20 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ActivityIndicator } from 'react-native';
+
+import { api } from '../utils/api';
 
 import { Button } from '../components/Button';
 import { Cart } from '../components/Cart';
 import { Categories } from '../components/Categories';
-import { Header } from '../components/Hearder';
+import { Header } from '../components/Header';
 import { Empty } from '../components/Icons/Empty';
 import { Menu } from '../components/Menu';
 import { TableModal } from '../components/TableModal';
 import { Text } from '../components/Text';
-import { products as mockProducts } from '../mocks/products';
 import { CartItem } from '../types/CartItem';
+import { Category } from '../types/Category';
 import { Product } from '../types/Product';
+
 import {
   CategoriesContainer,
   CenteredContainer,
@@ -25,8 +28,9 @@ export function Main() {
   const [isTableModalVisible, setIsTableModalVisible] = useState(false);
   const [selectedTable, setSelectedTable] = useState('');
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
-  const [isLoading] = useState(false);
-  const [products] = useState<Product[]>(mockProducts);
+  const [isLoading, setIsLoading] = useState(true);
+  const [products, setProducts] = useState<Product[]>([]);
+  const [categories, setCategories] = useState<Category[]>([]);
 
   function handleSaveTable(table: string) {
     setSelectedTable(table);
@@ -87,6 +91,16 @@ export function Main() {
     });
   }
 
+  useEffect(() => {
+    Promise.all([api.get('/products'), api.get('/categories')]).then(
+      ([productsResponse, categoriesResponse]) => {
+        setProducts(productsResponse.data);
+        setCategories(categoriesResponse.data);
+        setIsLoading(false);
+      }
+    );
+  }, []);
+
   return (
     <>
       <Container>
@@ -102,7 +116,7 @@ export function Main() {
         ) : (
           <>
             <CategoriesContainer>
-              <Categories></Categories>
+              <Categories categories={categories} />
             </CategoriesContainer>
 
             {products.length > 0 ? (

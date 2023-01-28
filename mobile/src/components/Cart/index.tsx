@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { FlatList, TouchableOpacity } from 'react-native';
 import { CartItem } from '../../types/CartItem';
 import { Product } from '../../types/Product';
-import { formatCurrency } from '../../Utils/formatCurrency';
+import { formatCurrency } from '../../utils/formatCurrency';
 import { Button } from '../Button';
 import { MinusCircle } from '../Icons/MinusCircle';
 import { PlusCircle } from '../Icons/PlusCircle';
