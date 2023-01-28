@@ -55,8 +55,6 @@ export function Cart({
 
     api.post('/orders', payload);
 
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
     setIsModalVisible(true);
     setIsLoading(false);
   }

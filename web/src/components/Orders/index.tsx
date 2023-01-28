@@ -1,8 +1,13 @@
 import { useEffect, useState } from 'react';
-import { Order } from '../../types/Order';
+import socketIo from 'socket.io-client';
+
 import { api } from '../../utils/api';
+
+import { Order } from '../../types/Order';
 import { OrdersBoard } from '../OrdersBoard';
+
 import { Container } from './styles';
+import { toast } from 'react-toastify';
 
 export function Orders() {
   const [orders, setOrders] = useState<Order[]>([]);
@@ -26,6 +31,17 @@ export function Orders() {
       prevState.filter((order) => order._id !== orderId)
     );
   }
+
+  useEffect(() => {
+    const socket = socketIo('http://192.168.15.55:3001', {
+      transports: ['websocket'],
+    });
+
+    socket.on('orders@new', (order) => {
+      toast.success(`Novo pedido para mesa ${order.table}!`);
+      setOrders((prevState) => prevState.concat(order));
+    });
+  }, []);
 
   useEffect(() => {
     api.get('/orders').then(({ data }) => setOrders(data));

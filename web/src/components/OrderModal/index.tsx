@@ -24,8 +24,6 @@ export function OrderModal({
 }: OrderModalProps) {
   useEffect(() => {
     function handleKeydown(event: KeyboardEvent) {
-      console.log(event.key);
-
       if (event.key === 'Escape') {
         onClose();
       }

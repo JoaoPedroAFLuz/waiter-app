@@ -45,8 +45,6 @@ export function OrdersBoard({
     const status =
       selectedOrder.status === 'WAITING' ? 'IN_PRODUCTION' : 'DONE';
 
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
     await api.patch(`/orders/${selectedOrder._id}`, {
       status,
     });
@@ -66,8 +64,6 @@ export function OrdersBoard({
     if (!selectedOrder) return;
 
     setIsLoading(true);
-
-    await new Promise((resolve) => setTimeout(resolve, 1000));
 
     await api.delete(`/orders/${selectedOrder._id}`);
 
