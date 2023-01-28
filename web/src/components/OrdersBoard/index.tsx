@@ -1,14 +1,18 @@
 import { useState } from 'react';
 import { toast } from 'react-toastify';
-import { Order } from '../../types/Order';
+
 import { api } from '../../utils/api';
+
+import { Order } from '../../types/Order';
 import { OrderModal } from '../OrderModal';
+
 import { Board, OrdersContainer } from './styles';
 
 interface OrdersBoardProps {
   icon: string;
   title: string;
   orders: Order[];
+  onChangeOrderStatus: (orderId: string, status: Order['status']) => void;
   onCancelOrder: (orderId: string) => void;
 }
 
@@ -16,6 +20,7 @@ export function OrdersBoard({
   icon,
   title,
   orders,
+  onChangeOrderStatus,
   onCancelOrder,
 }: OrdersBoardProps) {
   const [isLoading, setIsLoading] = useState(false);
@@ -30,6 +35,31 @@ export function OrdersBoard({
   function handleCloseModal() {
     setIsModalVisible(false);
     setSelectedOrder(null);
+  }
+
+  async function handleChangeOrderStatus() {
+    if (!selectedOrder) return;
+
+    setIsLoading(true);
+
+    const status =
+      selectedOrder.status === 'WAITING' ? 'IN_PRODUCTION' : 'DONE';
+
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
+    await api.patch(`/orders/${selectedOrder._id}`, {
+      status,
+    });
+
+    toast.success(
+      `O pedido da mesa ${selectedOrder.table} está ${
+        status === 'IN_PRODUCTION' ? 'em produção' : 'finalizado'
+      }!`
+    );
+
+    onChangeOrderStatus(selectedOrder._id, status);
+    setIsModalVisible(false);
+    setIsLoading(false);
   }
 
   async function handleCancelOrder() {
@@ -55,6 +85,7 @@ export function OrdersBoard({
         order={selectedOrder}
         isLoading={isLoading}
         onClose={handleCloseModal}
+        onChangeOrderStatus={handleChangeOrderStatus}
         onCancelOrder={handleCancelOrder}
       />
 
