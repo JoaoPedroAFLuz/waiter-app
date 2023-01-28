@@ -13,19 +13,36 @@ export function Orders() {
   );
   const doneOrders = orders.filter((order) => order.status === 'DONE');
 
+  function handleCancelOrders(orderId: string) {
+    setOrders((prevState) =>
+      prevState.filter((order) => order._id !== orderId)
+    );
+  }
+
   useEffect(() => {
     api.get('/orders').then(({ data }) => setOrders(data));
   }, []);
 
   return (
     <Container>
-      <OrdersBoard icon="🕒" title="Fila de espera" orders={waitingOrders} />
+      <OrdersBoard
+        icon="🕒"
+        title="Fila de espera"
+        orders={waitingOrders}
+        onCancelOrder={handleCancelOrders}
+      />
       <OrdersBoard
         icon="👩🏽‍🍳"
         title="Em preparação"
         orders={inProductionOrders}
+        onCancelOrder={handleCancelOrders}
       />
-      <OrdersBoard icon="✅" title="Finalizado!" orders={doneOrders} />
+      <OrdersBoard
+        icon="✅"
+        title="Finalizado!"
+        orders={doneOrders}
+        onCancelOrder={handleCancelOrders}
+      />
     </Container>
   );
 }

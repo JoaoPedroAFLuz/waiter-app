@@ -8,10 +8,18 @@ import { useEffect } from 'react';
 interface OrderModalProps {
   visible: boolean;
   order: Order | null;
+  isLoading: boolean;
   onClose: () => void;
+  onCancelOrder: () => Promise<void>;
 }
 
-export function OrderModal({ visible, order, onClose }: OrderModalProps) {
+export function OrderModal({
+  visible,
+  order,
+  isLoading,
+  onClose,
+  onCancelOrder,
+}: OrderModalProps) {
   useEffect(() => {
     function handleKeydown(event: KeyboardEvent) {
       console.log(event.key);
@@ -97,11 +105,16 @@ export function OrderModal({ visible, order, onClose }: OrderModalProps) {
         </OrderDetails>
 
         <Actions>
-          <button type="button" className="primary">
+          <button type="button" className="primary" disabled={isLoading}>
             <span>👩🏽‍🍳 Iniciar Produção</span>
           </button>
 
-          <button type="button" className="secondary">
+          <button
+            type="button"
+            className="secondary"
+            disabled={isLoading}
+            onClick={onCancelOrder}
+          >
             <span>Cancelar pedido</span>
           </button>
         </Actions>
