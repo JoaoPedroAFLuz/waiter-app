@@ -16,6 +16,10 @@ The web app make it possible to the cooks receive the orders and can change thei
   src="https://user-images.githubusercontent.com/70025328/217700116-a933002c-bfef-4b80-9c2c-ac8c7c6eaab9.PNG"
   height="600px"
 />
+<img
+  src="https://user-images.githubusercontent.com/70025328/217702575-69123f9c-446f-41de-93e0-8ef162cf9063.PNG"
+  height="600px"
+/>
 
 <img
   src="https://user-images.githubusercontent.com/70025328/217700775-25fc3826-3f20-42d1-8cb5-f9c8a0f64d7a.png"
