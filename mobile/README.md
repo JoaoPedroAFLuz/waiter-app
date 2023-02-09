@@ -12,9 +12,9 @@ The Mobile App allows the waiter to:
 
 - [x] See the menu;
 - [x] See the categories;
-- [ ] Open product details;
-- [ ] Filter by category;
-- [ ] Finish an order;
+- [x] Open product details;
+- [x] Filter by category;
+- [x] Finish an order;
  
 ## 🛠 How to install:
 
