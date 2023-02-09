@@ -1,6 +1,6 @@
 # 👩🏽‍🍳 Waiter Web Site
 
-- [Access site](https://waiter-web.netlify.app/)
+<!-- - [Access site](https://waiter-web.netlify.app/) -->
 
 ## 📱 Waiter App:
 
@@ -14,8 +14,8 @@ The web site allows the cooks to:
 
 - [x] Get all orders;
 - [x] Get order details;
-- [ ] Change order status;
-- [ ] Cancel order;
+- [x] Change order status;
+- [x] Cancel order;
 
 ## 🛠 How to install:
 
