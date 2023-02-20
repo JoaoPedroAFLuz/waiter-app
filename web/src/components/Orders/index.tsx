@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import socketIo from 'socket.io-client';
+import { toast } from 'react-toastify';
 
 import { api } from '../../utils/api';
 
@@ -7,7 +8,6 @@ import { Order } from '../../types/Order';
 import { OrdersBoard } from '../OrdersBoard';
 
 import { Container } from './styles';
-import { toast } from 'react-toastify';
 
 export function Orders() {
   const [orders, setOrders] = useState<Order[]>([]);
